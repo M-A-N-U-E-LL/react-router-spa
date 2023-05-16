@@ -3,23 +3,17 @@ import './assets/css/componentes/card.css'
 import Home from './pages/Home'
 import Sobre from './pages/Sobre'
 
-import { BrowserRouter as Router} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 function App() {
-  const location = window.location
-
-  const Router = () => {
-    if(location === "/") {
-      return <Home />
-    } else {
-      return <Sobre />
-    }
-  }
 
   return (
-    <>
-    { Router() }
-    </>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Home />}/>
+        <Route path='/Sobre' element={<Sobre />}/>
+      </Routes>
+    </Router>
   );
 }
 
